@@ -202,6 +202,12 @@
             text-decoration: none; border-bottom: 1px solid var(--rojo-claro);
         }
 
+        .aviso-cerca {
+            margin-top: .9rem; padding: .55rem .8rem;
+            background: var(--rojo-nube); border-radius: 10px;
+            font-size: .82rem; color: var(--carmin); font-weight: 600;
+        }
+
         /* Acciones de la invitación: calendario y compartir */
         .acciones-invitacion {
             display: flex; flex-wrap: wrap; gap: 12px;
@@ -450,10 +456,10 @@
                     <div class="card-icon">⛪</div>
                     <h3>Ceremonia Religiosa</h3>
                     <span class="hora" data-campo="ceremonia-hora">12:00 PM</span>
-                    <p><strong data-campo="ceremonia-lugar">Ejido La Joya</strong></p>
-                    <p data-campo="ceremonia-direccion">León, Gto.</p>
+                    <p><strong data-campo="ceremonia-lugar">Parroquia Inmaculada Concepción</strong></p>
+                    <p data-campo="ceremonia-direccion">La Joya, León, Gto.</p>
                     <a class="mapa" data-campo="ceremonia-maps" target="_blank" rel="noopener"
-                       href="https://www.google.com/maps/search/?api=1&amp;query=Iglesia%20Ejido%20La%20Joya%20Le%C3%B3n%20Guanajuato">Ver en mapa →</a>
+                       href="https://maps.app.goo.gl/5yAd2GFABteY6ZwJ7">Ver en mapa →</a>
                 </div>
 
                 <div class="card" id="cardRecepcion">
@@ -461,10 +467,11 @@
                     <h3>Recepción</h3>
                     <!-- Sin estilo propio: al llegar la hora desde Supabase se ve como la de la misa. -->
                     <span class="hora" data-campo="recepcion-hora">Por confirmar</span>
-                    <p><strong data-campo="recepcion-lugar">Salón Alterado</strong></p>
+                    <p><strong data-campo="recepcion-lugar">Salón Alvarado</strong></p>
                     <p data-campo="recepcion-direccion">Bulevar Calíope 1528, León, Gto.</p>
+                    <div class="aviso-cerca">📍 A unos minutos de la parroquia</div>
                     <a class="mapa" data-campo="recepcion-maps" target="_blank" rel="noopener"
-                       href="https://www.google.com/maps/search/?api=1&amp;query=Bulevar%20Cal%C3%ADope%201528%20Le%C3%B3n%20Guanajuato">Ver en mapa →</a>
+                       href="https://www.google.com/maps/search/?api=1&amp;query=Sal%C3%B3n%20Alvarado%20Bulevar%20Cal%C3%ADope%201528%20Le%C3%B3n%20Guanajuato">Ver en mapa →</a>
                 </div>
 
                 <div class="card" data-opcional id="cardVestimenta" hidden>
@@ -756,7 +763,7 @@
             'DTEND:' + aUTC(fin),
             'SUMMARY:XV Años de Daniela Guadalupe Jasso Moreno',
             'DESCRIPTION:Misa 12:00 PM en ' + lugar + '. Recepción en ' + salon + '.',
-            'LOCATION:' + lugar + ', León, Gto.',
+            'LOCATION:' + lugar + ', La Joya, León, Gto.',
             'BEGIN:VALARM',
             'TRIGGER:-P1D',
             'ACTION:DISPLAY',
