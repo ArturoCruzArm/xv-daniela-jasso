@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística - XV Años Daniela</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdeeed 0%, #f9dcd8 100%);
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #c1121f 0%, #8b0f1a 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 2.5rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #c1121f;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c1121f;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #fdeeed 0%, #f9dcd8 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: #8b0f1a;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        .info-card a {
+            color: #c1121f;
+            font-weight: 600;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #c1121f 0%, #8b0f1a 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -2.5rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #c1121f;
+        }
+
+        .timeline-item.done:before {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .status-done {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #fdeeed;
+            border-left: 4px solid #c1121f;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .checklist li .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .checklist li .text strong {
+            color: #8b0f1a;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #c1121f 0%, #8b0f1a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .price-box .total {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .price-box .detail {
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #c1121f 0%, #8b0f1a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .note-box strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media print {
+            .nav-links {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Logística del Evento</h1>
+            <p>XV Años Daniela Guadalupe Jasso Moreno · Sábado 3 de Octubre, 2026</p>
+
+            <div class="nav-links">
+                <a href="index.html">Invitación</a>
+                <a href="selector.html">Selector</a>
+                <a href="album.html">Álbum</a>
+                <a href="contrato.html">Contrato</a>
+                <a href="logistica.html">Logística</a>
+                <a href="preparativos.html">Preparativos</a>
+                <a href="datos.html">Datos</a>
+                <a href="datos-edicion.html">Datos Video</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- URGENTE -->
+            <section class="section">
+                <div class="note-box" style="background:#fdecea;border-left:5px solid #c1121f;">
+                    <strong style="color:#8b0f1a;font-size:1.05rem;">Faltan 10 días para tu evento</strong><br>
+                    El saldo de <strong>$4,000</strong> se liquida el <strong>25 de septiembre</strong> (8 días antes),
+                    y la <strong>sesión fotográfica todavía no se agenda</strong>. Son las dos cosas urgentes
+                    para que todo salga completo, incluida la ampliación impresa el día de la fiesta.
+                </div>
+            </section>
+
+            <!-- Información del Evento -->
+            <section class="section">
+                <h2 class="section-title">📅 Información del Evento</h2>
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>⛪ Ceremonia Religiosa</h3>
+                        <p><strong>Fecha:</strong> Sábado 3 de octubre de 2026</p>
+                        <p><strong>Hora:</strong> 12:00 PM</p>
+                        <p><strong>Lugar:</strong> Ejido La Joya, León, Gto.</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Ejido%20La%20Joya%20Le%C3%B3n%20Guanajuato" target="_blank">Buscar en Google Maps</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎉 Recepción</h3>
+                        <p><strong>Lugar:</strong> Salón Alterado</p>
+                        <p><strong>Dirección:</strong> Bulevar Calíope 1528, León, Gto.</p>
+                        <p><strong>Hora:</strong> <span style="color:#c0392b;">pendiente de confirmar</span></p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Bulevar%20Cal%C3%ADope%201528%20Le%C3%B3n%20Guanajuato" target="_blank">Buscar en Google Maps</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top:1rem;">
+                    <h3>📸 Sesión fotográfica previa</h3>
+                    <p><strong>Hora:</strong> 3:00 PM, cualquier día de la semana</p>
+                    <p><strong>Cuándo:</strong> en cuanto esté listo el vestido</p>
+                    <p style="color:#c0392b;"><strong>Fecha: por agendar — urge</strong></p>
+                    <p style="font-size:.9em;color:#666;margin-top:.5rem;">Normalmente se coordina con la persona que la peina.</p>
+                </div>
+            </section>
+
+            <!-- Pagos -->
+            <section class="section">
+                <h2 class="section-title">💰 Resumen de Pagos</h2>
+                <div class="grid-2">
+                    <div class="price-box">
+                        <div class="total">$5,000 MXN</div>
+                        <div class="detail">Paquete 1 · invitación web incluida</div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Estado de Pagos</h3>
+                        <p><span class="status-done">✓ Apartado:</span> $1,000 (9 de agosto de 2026)</p>
+                        <p><span class="status-pending">⏳ Saldo:</span> <strong>$4,000</strong></p>
+                        <p><strong>Fecha límite:</strong> 25 de septiembre 2026</p>
+                        <p style="font-size: 0.9em; color: #666;">(8 días antes del evento)</p>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>Datos para transferencia:</strong> BBVA · 4152 3145 9966 8897 ·
+                    Juan Arturo Cruz Armenta
+                </div>
+
+                <div class="note-box">
+                    <strong>Por qué pedimos liquidar 8 días antes:</strong> durante esa semana hacemos
+                    prácticamente todos los gastos de la cobertura (personal, preparación de equipo,
+                    traslados y parte de los entregables). Estando liquidado, <strong>la ampliación se
+                    lleva ya impresa al salón el día del evento</strong> y las fotos digitales se envían
+                    lo antes posible para que elijan con calma cuáles imprimir.
+                </div>
+
+                <div class="note-box">
+                    <strong>Si se prefiere pagar después del evento</strong> también se puede; en ese caso
+                    la entrega del material, digital e impreso, queda pendiente hasta cubrir el total,
+                    porque antes hay que cubrir al personal y los costos del paquete. Tampoco conservamos
+                    el material como única copia durante meses: aun con respaldos, mientras más tiempo
+                    pasa mayor es el riesgo de pérdida o daño de archivos.
+                </div>
+            </section>
+
+            <!-- Cronología -->
+            <section class="section">
+                <h2 class="section-title">🗓️ Fechas Importantes</h2>
+                <div class="timeline">
+                    <div class="timeline-item done">
+                        <strong>9 de Agosto 2026</strong> <span class="status-done">✓ Completado</span>
+                        <p>Apartado de $1,000 recibido — fecha asegurada</p>
+                    </div>
+                    <div class="timeline-item done">
+                        <strong>23 de Septiembre 2026</strong> <span class="status-done">✓ Completado</span>
+                        <p>Datos recibidos: papás, padrinos, madrinas, misa y salón</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Por agendar</strong> <span class="status-pending">⏳ Urgente</span>
+                        <p>Sesión fotográfica (3:00 PM, cuando esté el vestido)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>25 de Septiembre 2026</strong> <span class="status-pending">⏳ Urgente</span>
+                        <p>Fecha límite para liquidar los $4,000</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>3 de Octubre 2026</strong>
+                        <p><strong>DÍA DEL EVENTO</strong> — misa 12:00 PM, después la fiesta</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Hasta 60 días hábiles después</strong>
+                        <p>Entrega del material (fotos impresas, USB y ampliación)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lo que necesitamos de ti -->
+            <section class="section">
+                <h2 class="section-title">✅ Lo que necesitamos de ti</h2>
+                <ul class="checklist">
+                    <li>
+                        <span class="icon">📸</span>
+                        <div class="text">
+                            <strong>Agendar la sesión — lo más urgente</strong><br>
+                            3:00 PM, cualquier día de la semana. Avísanos en cuanto tengas el vestido
+                            para coordinarnos con quien te peina
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">💳</span>
+                        <div class="text">
+                            <strong>Liquidar el saldo</strong><br>
+                            $4,000 antes del 25 de septiembre, para que la ampliación llegue impresa al salón
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🕐</span>
+                        <div class="text">
+                            <strong>Hora de la fiesta</strong><br>
+                            Ya tenemos el salón y la dirección; nos falta a qué hora empieza la recepción
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">👗</span>
+                        <div class="text">
+                            <strong>Código de vestimenta y color reservado</strong><br>
+                            Para avisar a los invitados en la invitación
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🎵</span>
+                        <div class="text">
+                            <strong>Canciones</strong><br>
+                            La del vals y la que quieras de fondo en la invitación web
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🍽️</span>
+                        <div class="text">
+                            <strong>Reservar mesa para el personal</strong><br>
+                            2 lugares para el equipo de foto y video durante la recepción
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🖼️</span>
+                        <div class="text">
+                            <strong>Elegir tus fotos</strong><br>
+                            Después de la sesión y del evento: 50 fotos impresas + 1 para la ampliación 50x60
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Paquete Incluido -->
+            <section class="section">
+                <h2 class="section-title">📦 Tu Paquete Incluye</h2>
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>🎬 Cobertura</h3>
+                        <p>✓ Sesión fotográfica previa</p>
+                        <p>✓ 1 hora de ceremonia (misa)</p>
+                        <p>✓ 4 horas de recepción</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📷 Entregables</h3>
+                        <p>✓ 50 fotos impresas 5x7" con su caja</p>
+                        <p>✓ Película USB 4K de 2:00 hrs, original y copia, con su caja</p>
+                        <p>✓ Ampliación 50x60 cm</p>
+                        <p>✓ Invitación web (cortesía)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contacto -->
+            <section class="section">
+                <div class="contact-box">
+                    <h3 style="margin-bottom: 1rem;">📞 Contacto Foro 7</h3>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5214779203776">477-920-3776</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:foro7producciones@gmail.com">foro7producciones@gmail.com</a></p>
+                    <p style="margin-top: 1rem;"><strong>Local:</strong> Padilla 112, Cumbres de Arbide, León, Gto.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="visitas.js?v=1"></script>
+<script src="js/foro7-footer.js?v=1"></script>
+</body>
+</html>
