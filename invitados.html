@@ -100,6 +100,25 @@
     .plano-lista li.llego { color: #2e9e5b; font-weight: 600; }
     .plano-lista li.llego::before { content: '✓ '; }
     .plano-lista li.anon { color: #aaa; }
+    /* ── Mesa principal: los festejados ── */
+    .plano-mesa.principal { grid-column: 1 / -1; border-color: #c9a227; background: #fffdf4; }
+    .mesa-larga {
+        border: 2px solid #c9a227; background: #fff8e3;
+        border-radius: 14px; padding: 16px 18px; margin-bottom: .6rem;
+    }
+    .mesa-larga-et {
+        font-size: .76rem; font-weight: 700; letter-spacing: .14em;
+        text-transform: uppercase; color: #8a6d12; margin-bottom: .8rem; text-align: center;
+    }
+    .mesa-larga-lugares { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .lugar-principal {
+        display: flex; flex-direction: column; align-items: center;
+        background: #fff; border: 1px solid #ecdfae; border-radius: 9px;
+        padding: 8px 14px; min-width: 110px;
+    }
+    .lugar-principal.llego { border-color: #2e9e5b; background: #f2fbf5; }
+    .lp-nombre { font-size: .86rem; font-weight: 600; color: #4a3c12; }
+    .lp-rol { font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: #a08a3e; }
 
     /* Al imprimir: solo el plano, en blanco y negro legible */
     @media print {
@@ -140,6 +159,7 @@
         <header class="service-header" style="background: linear-gradient(135deg, #55efc4, #00b894);">
             <div class="service-icon"><i class="fas fa-users"></i></div>
             <h1>Gestión de Invitados</h1>
+            <p style="margin-top:.4rem"><a href="panel.html" style="color:inherit;opacity:.8;font-size:.85rem">🧭 Ver todas las páginas del evento</a></p>
             <p>XV Años Daniela Guadalupe Jasso Moreno</p>
         </header>
         <section class="service-section">
@@ -334,7 +354,7 @@
     };
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="js/rsvp-admin-3.js"></script>
+    <script src="js/rsvp-admin.8667f8ed.js"></script>
 <script src="js/foro7-footer.js?v=1"></script>
 <script>
 /* ── Notificaciones de datos pendientes ── */
