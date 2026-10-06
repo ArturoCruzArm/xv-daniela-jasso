@@ -1,7 +1,7 @@
 /* Service Worker — XV Años Daniela Guadalupe Jasso Moreno
    Shell: red primero con respaldo en caché.
    Imágenes: caché primero (las fotos no cambian). */
-const CACHE_SHELL  = 'danielajasso-shell-v1';
+const CACHE_SHELL  = 'danielajasso-shell-v2';
 const CACHE_IMAGES = 'danielajasso-images-v1';
 
 const SHELL = [
@@ -13,7 +13,7 @@ const SHELL = [
     './css/selector.css',
     './css/album.css',
     './js/config.js',
-    './js/photos.cda60a08.js',
+    './js/photos.1f70e871.js',
     './js/supabase-api.js',
     './js/selector.js',
     './visitas.js',
